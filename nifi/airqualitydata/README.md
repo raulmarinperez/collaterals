@@ -31,6 +31,8 @@ In this tutorial I’ll show you how to extract air quality data from the [“Ai
 
 ![test1](img/Air Quality in Europe web site.png)
 ![test2](img/Air\ Quality\ in\ Europe\ web\ site.png)
+![test3](img/Air%20Quality%20in%20Europe%20web%20site.png)
+![test4](https://github.com/raulmarinperez/articles/raw/master/nifi/airqualitydata/img/Air%20Quality%20in%20Europe%20web%20site.png)
 
 ![Current situation page. Cities are grouped by country.](img/Air\ Quality\ in\ Europe\ web\ site.png)
 <center><small>***Current situation page. Cities are grouped by country.***</small></center>
