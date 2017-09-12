@@ -29,14 +29,9 @@ Don’t worry if you’ve never used Scrapy, its [documentation](https://docs.sc
 In this tutorial I’ll show you how to extract air quality data from the [“Air Quality in Europe” web site](https://www.airqualitynow.eu). Unfortunately there is not a REST API available to easily pull that data out, and data has to be extracted directly from the [“Current situation” page](https://www.airqualitynow.eu/comparing_home.php) or [RSS feeds](https://www.airqualitynow.eu/rss.php):
 
 
-![test1](img/Air Quality in Europe web site.png)
-![test2](img/Air\ Quality\ in\ Europe\ web\ site.png)
-![test3](img/Air%20Quality%20in%20Europe%20web%20site.png)
-![test4](https://github.com/raulmarinperez/articles/raw/master/nifi/airqualitydata/img/Air%20Quality%20in%20Europe%20web%20site.png)
-
-![Current situation page. Cities are grouped by country.](img/Air\ Quality\ in\ Europe\ web\ site.png)
+![pic1](img/Air%20Quality%20in%20Europe%20web%20site.png)
 <center><small>***Current situation page. Cities are grouped by country.***</small></center>
-![RSS feed. Cities are sorted by name.](img/RSS\ feed.png)
+![pic2](img/RSS%20feed.png)
 <center><small>***Current situation page. Cities are grouped by country.***</small></center>
 
 Both resources are valid to extract the data we need, though I’ll use the first one as it gives us the information grouped by country, which will make processing easier afterwards. The “Current situation” page is going to be parsed and processed once an hour and, as a result, there will be a JSON document per city with the following schema:
