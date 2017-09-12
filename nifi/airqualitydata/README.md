@@ -108,7 +108,7 @@ LOG_LEVEL = 'ERROR'
  - **Step 4.-** Test the spider before deploying it to a NiFi cluster. To do so, we’ll use the `scrapy crawl` command, passing the name of the spider as an argument. If everything goes ok, you should get something similar to the following screenshot:
     ![pic5](img/Scrapy_3.png) 
  - **Step 5.-** Copy the spider to every NiFi node in the cluster, this will provide an HA and scalable scenario. In order to achieve **web scraping at scale**, you might have **multiple spiders running in parallel to speed up the data extraction process**. Every spider would process a subset of the total data.
-Our sample spider is very simple, deal with a small amount of data and cannot be parameterized. Anyway, I’ll copy it to the three nodes of my NiFi cluster to achieve HA as there will only be a single instance running at a given time.
+Our sample spider is very simple, deal with a small amount of data and cannot be parameterized. Anyway, I’ll copy it to the three nodes of my NiFi cluster to achieve HA as there will be only a single instance running at a given time.
 It’s important to give the right permissions to the files, otherwise the NiFi node will be unable to use them. As a suggestion you might want to copy the spider under NiFi home directory (`/home/nifi`), and change the file owner to the nifi user in addition:
     ![pic6](img/Scrapy_4.png) 
 
@@ -133,7 +133,7 @@ Let’s build a super simple **Process Group named “Air Quality Data Extractor
     ![pic9](img/NiFi_3.png) 
  - **Step 3.-** Provide the Process Group with an Output Port and connect it to the ExecuteProcess Processor. This will allow other Process Groups or Processors to get extracted data from the Air Quality site:
     ![pic10](img/NiFi_4.png) 
-    *Note that this is a very simple Process Group*, but in a real case scenario we could be interested in register a schema in the Schema Registry component within the Process Group.
+    *Note that this is a very simple Process Group*, but in a real case scenario we could be interested in registering a schema in the Schema Registry component within the Process Group.
  - **Step 4.-** Exit from the Process Group, add a **PublishKafka processor** and connect both items to complete our example:
     ![pic11](img/NiFi_5.png) 
     ![pic12](img/NiFi_6.png) 
@@ -147,7 +147,7 @@ This example just showcased how Apache NiFi can easily integrate itself with any
 It’s very common to have many custom scripts or processes for very specific tasks, such as custom ETL scripts for data consolidation. You might think that in order to use NiFi to improve the automation and performance of those custom scripts, you need to migrate them all before starting. The reality is that you have the option of following the approach presented in this example in first place, and migrate those custom scripts to NiFi little by little.
 
 ### References
-The following resources have been using to elaborate this article:
+The following resources have been used to elaborate this article:
 
  - [Web scraping (wikipedia)](https://en.wikipedia.org/wiki/Web_scraping)
  - [Scrapy](https://scrapy.org/)
