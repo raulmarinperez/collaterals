@@ -31,11 +31,11 @@ In this tutorial I’ll show you how to extract air quality data from the [“Ai
 
 ![pic1](img/Air%20Quality%20in%20Europe%20web%20site.png)
 
-<center><small>***Current situation page. Cities are grouped by country.***</small></center>
+<center>small>Current situation page. Cities are grouped by country.</small></center>
 
 ![pic2](img/RSS%20feed.png)
 
-<center><small>***Current situation page. Cities are grouped by country.***</small></center>
+<center><small>Current situation page. Cities are grouped by country.</small></center>
 
 Both resources are valid to extract the data we need, though I’ll use the first one as it gives us the information grouped by country, which will make processing easier afterwards. The “Current situation” page is going to be parsed and processed once an hour and, as a result, there will be a JSON document per city with the following schema:
 
