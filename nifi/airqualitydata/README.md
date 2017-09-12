@@ -22,11 +22,11 @@ The first option is the most extended, and it allows interactive access and batc
 There are many powerful and production ready open source web scrapers out there, and all of them excel at stages #1 and #2. However, most of them lack of facilities for “outcome dispatching”. Not to mention that they are not meant to be part of enterprise class architectures where security and governance are a must. Here it’s where **Apache NiFi** comes to the rescue, complementing open source web scrapers to bring a solid web scraping open source and enterprise class solution.
 
 ### Scrapy 1.4
-Scrapy claims to be an “open source and collaborative framework for extracting the data you need from websites in a fast, simple, yet extensible way”. Scrapy is a Python framework easy to install via pip, and it comes with a set of command line tools which are useful for developing and debugging.
+[Scrapy](https://scrapy.org/) claims to be an *“open source and collaborative framework for extracting the data you need from websites in a fast, simple, yet extensible way”*. Scrapy is a Python framework easy to install via pip, and it comes with a set of command line tools which are useful for developing and debugging.
 
 Don’t worry if you’ve never used Scrapy, its [documentation](https://docs.scrapy.org/en/latest/index.html) is very well-written and it has an [101 tutorial](https://docs.scrapy.org/en/latest/intro/tutorial.html) to get familiarized very quickly.
 #### Collecting Air Quality of main European cities
-In this tutorial I’ll show you how to extract air quality data from the [“Air Quality in Europe” web site](https://www.airqualitynow.eu). Unfortunately there is not a REST API available to easily pull that data out, and data has to be extracted directly from the [“Current situation” page](https://www.airqualitynow.eu/comparing_home.php) or [RSS feeds](https://www.airqualitynow.eu/rss.php):
+In this tutorial I’ll show you how to extract air quality data from the [“Air Quality in Europe” web site](https://www.airqualitynow.eu). Unfortunately there is not a REST API available to easily pull that data out, and data has to be extracted directly from [“Current situation” page](https://www.airqualitynow.eu/comparing_home.php) or [RSS feeds](https://www.airqualitynow.eu/rss.php):
 
 
 ![pic1](img/Air%20Quality%20in%20Europe%20web%20site.png)
@@ -124,14 +124,14 @@ In the introduction I mentioned that NiFi is very handy to dispatch the extracte
 #### Process Group for web data extraction
 This section will outline how to create a *NiFi Process Group* able to jointly work with existing Scrapy spiders properly deployed on NiFi instances. Process Groups are abstractions encapsulating the details of the data flow, and can nest additional Process Groups if needed. By having multiple Process Groups, it’s easier to build, debug and understand complex data flows without affecting the performance.
 
-Let’s build a super simple **Process Group named “Air Quality Data Extractor”** calling to our **airqualitydata spider**, and let’s connect it to a Kafka topic named airquality for further processing. This will involve only 5 steps:
+Let’s build a super simple **Process Group named “Air Quality Data Extractor”** calling our **airqualitydata spider**, and let’s connect it to a Kafka topic named `airquality` for further processing. This will involve only 5 steps:
 
- - **Step 1.-** Create the Process Group using the NiFi Web UI. These screenshots outline the steps involved:
+ - **Step 1.-** Create the Process Group using the NiFi Web UI by following the steps outlined in these screenshots:
     ![pic7](img/NiFi_1.png) 
  - **Step 2.-** Double click the Process Group and add an ExecuteProcess processor to invoke the **airqualitydata Scrapy spider**. Look into the screenshots to understand the process.
     ![pic8](img/NiFi_2.png) 
     ![pic9](img/NiFi_3.png) 
- - **Step 3.-** Provide the Process Group with an Output Port and connect it to the ExecuteProcess Processor. This will allow other Process Group or Processors to get extracted data from the Air Quality site:
+ - **Step 3.-** Provide the Process Group with an Output Port and connect it to the ExecuteProcess Processor. This will allow other Process Groups or Processors to get extracted data from the Air Quality site:
     ![pic10](img/NiFi_4.png) 
     *Note that this is a very simple Process Group*, but in a real case scenario we could be interested in register a schema in the Schema Registry component within the Process Group.
  - **Step 4.-** Exit from the Process Group, add a **PublishKafka processor** and connect both items to complete our example:
