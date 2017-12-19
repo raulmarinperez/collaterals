@@ -1,0 +1,29 @@
+--------------------------------------------
+Universidad Rey Juan Carlos
+Grupo de Sistemas y Comunicaciones
+http://gsyc.escet.urjc.es
+
+Grabaciones de la asignatura "Tecnologías de Servicios y Aplicaciones
+para Internet", curso 2002-2003. Profesores: José Centeno González y
+Jesús M. González Barahona.
+
+Copyright 2002-2003 José Centeno González, Jesús M. González Barahona
+Se otorga permiso para copiar exactamente el contenido de este CD, sin
+realizar ninguna modificación ni corte a las grabaciones.
+
+ClaseTSAI14_1.rm
+Tema "Introducción a LDAP", transparencias 233 a 241.
+
+ClaseTSAI14_2.rm
+Tema "Introducción a WebDAV", transparencias 221 a 232.
+
+ClaseTSAI15.rm
+Tema "Resolución problema examen", enunciado en el fichero "ejercicios.ps.gz"
+
+
+Preguntas o peticiones de información:
+
+jgb@gsyc.escet.urjc.es
+jcenteno@gsyc.escet.urjc.es
+
+---------------------------------------------------------------
