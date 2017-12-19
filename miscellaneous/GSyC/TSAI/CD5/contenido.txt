@@ -1,0 +1,45 @@
+--------------------------------------------
+Universidad Rey Juan Carlos
+Grupo de Sistemas y Comunicaciones
+http://gsyc.escet.urjc.es
+
+Grabaciones de la asignatura "Tecnologías de Servicios y Aplicaciones
+para Internet", curso 2002-2003. Profesores: José Centeno González y
+Jesús M. González Barahona.
+
+Copyright 2002-2003 José Centeno González, Jesús M. González Barahona
+Se otorga permiso para copiar exactamente el contenido de este CD, sin
+realizar ninguna modificación ni corte a las grabaciones.
+
+
+ClaseTSAI8_1.rm
+Tema "SMIL", transparencias 135 a 158
+
+ClaseTSAI8_2.rm
+Tema "Streaming", transparencias 159 a 166
+- Codificación.
+- Codificación de audio.
+
+ClaseTSAI9_1.rm
+Tema "Streaming", transparencias 166 a 171
+- Codificación de video.
+- Trasmisión de información multimedia.
+
+ClaseTSAI9_2.rm
+Tema "Streaming", transparencias 172 a 181
+- Algoritmos de reproducción en recepción.
+- Sincronización.
+- RTP.
+
+ClaseTSAI10.rm
+Tema "Streaming", transparencias 182 a 195 
+- RTCP.
+- RTSP.
+
+
+Preguntas o peticiones de información:
+
+jgb@gsyc.escet.urjc.es
+jcenteno@gsyc.escet.urjc.es
+
+---------------------------------------------------------------
