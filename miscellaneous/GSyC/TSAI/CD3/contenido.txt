@@ -1,0 +1,36 @@
+--------------------------------------------
+Universidad Rey Juan Carlos
+Grupo de Sistemas y Comunicaciones
+http://gsyc.escet.urjc.es
+
+Grabaciones de la asignatura "Tecnologías de Servicios y Aplicaciones
+para Internet", curso 2002-2003. Profesores: José Centeno González y
+Jesús M. González Barahona.
+
+Copyright 2002-2003 José Centeno González, Jesús M. González Barahona
+Se otorga permiso para copiar exactamente el contenido de este CD, sin
+realizar ninguna modificación ni corte a las grabaciones.
+
+ClaseTSAI4_1.rm
+Tema "IPSec", transparencias 71 a 77
+- Introducción.
+- Problemas en IPv4.
+
+
+ClaseTSAI4_2.rm
+Tema "IPSec", transparencias 78 a 86
+- Anatomía de IPSec.
+
+ClaseTSAI5.rm
+Tema "IPSec", transparencias 87 a 101
+- AH.
+- ESP.
+
+
+
+Preguntas o peticiones de información:
+
+jgb@gsyc.escet.urjc.es
+jcenteno@gsyc.escet.urjc.es
+
+---------------------------------------------------------------
