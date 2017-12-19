@@ -1,0 +1,34 @@
+--------------------------------------------
+Universidad Rey Juan Carlos
+Grupo de Sistemas y Comunicaciones
+http://gsyc.escet.urjc.es
+
+Grabaciones de la asignatura "Tecnologías de Servicios y Aplicaciones
+para Internet", curso 2002-2003. Profesores: José Centeno González y
+Jesús M. González Barahona.
+
+Copyright 2002-2003 José Centeno González, Jesús M. González Barahona
+Se otorga permiso para copiar exactamente el contenido de este CD, sin
+realizar ninguna modificación ni corte a las grabaciones.
+
+ClaseTSAI1_1.rm
+Tema "Sitios Web Complejos", transparencias 30 a 31
+
+ClaseTSAI1_2.rm
+Tema "Sitios Web Complejos", transparencias 32 a 37
+
+ClasePython1.rm
+Tema "Introducción a Python", transparencias 1 a 15 (documento Introduccion-Python)
+
+ClasePython2.rm
+Tema "Introducción a Python", transparencias 15 a 66 (documento Introduccion-Python)
+
+
+
+
+Preguntas o peticiones de información:
+
+jgb@gsyc.escet.urjc.es
+jcenteno@gsyc.escet.urjc.es
+
+---------------------------------------------------------------
