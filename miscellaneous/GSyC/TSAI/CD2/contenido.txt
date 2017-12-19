@@ -1,0 +1,46 @@
+--------------------------------------------
+Universidad Rey Juan Carlos
+Grupo de Sistemas y Comunicaciones
+http://gsyc.escet.urjc.es
+
+Grabaciones de la asignatura "Tecnologías de Servicios y Aplicaciones
+para Internet", curso 2002-2003. Profesores: José Centeno González y
+Jesús M. González Barahona.
+
+Copyright 2002-2003 José Centeno González, Jesús M. González Barahona
+Se otorga permiso para copiar exactamente el contenido de este CD, sin
+realizar ninguna modificación ni corte a las grabaciones.
+
+
+ClaseTSAI2_1.rm
+Tema "Introducción a XML", transparencias 38 a 50
+- DTDs
+- DOM
+- SAX
+
+ClaseTSAI2_2.rm
+Tema "Introducción a XML", transparencias 51 a 59
+- Aplicaciones típicas.
+- Ejemplos.
+
+ClaseTSAI3_1.rm
+Tema "Introducción a la seguridad en Internet", transparencias 3 a 24 (documento Transparencias-Seguridad).
+- Conceptos.
+- Algoritmos.
+- Firmas.
+- Certificados.
+- Taxonomia.
+
+ClaseTSAI3_2.rm
+Tema "Introducción a la seguridad en Internet", transparencias 60 a 70
+- Seguridad en TCP/IP.
+- Seguridad en el nivel de aplicación.
+- Amenazas habituales.
+
+
+Preguntas o peticiones de información:
+
+jgb@gsyc.escet.urjc.es
+jcenteno@gsyc.escet.urjc.es
+
+---------------------------------------------------------------
