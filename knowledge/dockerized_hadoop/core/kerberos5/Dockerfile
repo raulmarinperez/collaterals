@@ -81,3 +81,11 @@ CMD ["/etc/bootstrap.sh"]
 #   KERBEROS - 88(tcp) and 750(udp)
 
 EXPOSE 88 750
+
+# Some links I found useful while building this file:
+#
+#   - Kerberos Protocol Tutorial: http://www.kerberos.org/software/tutorial.html
+#   - Installing KDC: http://web.mit.edu/kerberos/krb5-current/doc/admin/install_kdc.html
+#   - MIT Kerberos Documentation - For users: http://web.mit.edu/kerberos/krb5-current/doc/user/index.html
+#   - MIT Kerberos Documentation - Application servers: http://web.mit.edu/kerberos/krb5-current/doc/admin/appl_servers.html
+#   - 

@@ -218,3 +218,20 @@ CMD ["/etc/bootstrap.sh"]
 #   KERBEROS - 88(tcp) and 750(udp)
 
 EXPOSE 88 750
+
+# Some links I found useful while building this file:
+#
+#   - Setting up HiverServer2:
+#     https://cwiki.apache.org/confluence/display/Hive/Setting+up+HiveServer2
+#   - Configure HiveServer 2 to use Kerberos:
+#     https://mapr.com/docs/52/Hive/HiveServer2-KerberosAuth.html
+#   - HiveServer2 Clients:
+#     https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-BeelineExample
+#   - Generic JDBC Interpreter for Apache Zeppelin:
+#     https://zeppelin.apache.org/docs/latest/interpreter/jdbc.html#apache-hive
+#   - AuthenticationMethod exception on JDBC interpreter:
+#     https://issues.apache.org/jira/browse/ZEPPELIN-1326
+#   - How to check the namenode status?:
+#     https://community.cloudera.com/t5/Support-Questions/How-to-check-the-namenode-status/m-p/149546
+#   - kinit: krb5_get_init_creds: unable to reach any KDC in realm LOCAL:
+#     https://apple.stackexchange.com/questions/63122/kinit-krb5-get-init-creds-unable-to-reach-any-kdc-in-realm-local

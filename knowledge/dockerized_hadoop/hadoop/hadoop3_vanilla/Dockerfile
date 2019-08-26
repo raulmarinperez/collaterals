@@ -132,3 +132,8 @@ CMD ["/etc/bootstrap.sh"]
 EXPOSE 50070 50075
 #   MR/YARN - Resource manager + MR JobHistory server
 EXPOSE 8088 19888
+
+# Some links I found useful while building this file:
+#
+#   - Setting up a Single Node Cluster:
+#       https://hadoop.apache.org/docs/r3.2.0/hadoop-project-dist/hadoop-common/SingleCluster.html

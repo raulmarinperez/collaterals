@@ -190,3 +190,26 @@ ENV BOOTSTRAP /etc/bootstrap.sh
 
 WORKDIR /opt/hadoop
 CMD ["/etc/bootstrap.sh"]
+
+# Some links I found useful while building this file:
+#
+#   - Cannot set priority of datanode process:
+#       http://mail-archives.apache.org/mod_mbox/hadoop-hdfs-dev/201804.mbox/browser
+#       https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities
+#   - NodeManager fails to start in a secured cluster:
+#       https://community.pivotal.io/s/article/Nodemanager-fails-to-start-in-a-secured-cluster
+#   - Hadoop in Secure Mode:
+#       https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/SecureMode.html
+#       https://unix.stackexchange.com/questions/108718/what-is-chmod-6050-good-for
+#   - YARN Secure Containers:
+#       https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/SecureContainer.html
+# 
+#   Links below where handy when I tried having two containers (krb5 and
+#   hadoop) running at the same time, which needs to define the networking
+#   properly:
+#
+#   - Set specific IP addresses to docker containers created with docker-compose:
+#       https://blog.alejandrocelaya.com/2017/04/21/set-specific-ip-addresses-to-docker-containers-created-with-docker-compose/
+#   - Docker Networking Design Philosophy:
+#       https://blog.docker.com/2016/03/docker-networking-design-philosophy/
+#   - 
