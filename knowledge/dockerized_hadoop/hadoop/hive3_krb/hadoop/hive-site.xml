@@ -1,0 +1,18 @@
+<configuration>
+  <property>
+    <name>hive.server2.authentication</name>
+    <value>KERBEROS</value>
+  </property>
+  <property>
+    <name>hive.server2.authentication.kerberos.principal</name>
+    <value>hive/hadoop.krb.test@QUEEN.KRB.TEST</value>
+  </property>
+  <property>
+    <name>hive.server2.authentication.kerberos.keytab</name>
+    <value>/etc/security/keytab/hive.service.keytab</value>
+  </property>
+  <property>
+    <name>hive.server2.active.passive.ha.enable</name>
+    <value>true</value>
+  </property>
+</configuration>

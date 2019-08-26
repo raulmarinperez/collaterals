@@ -1,0 +1,2 @@
+# More info about Kerberos ACL: https://web.mit.edu/Kerberos/www/krb5-latest/doc/admin/conf_files/kadm5_acl.html#kadm5-acl-5
+admin/admin@QUEEN.KRB.TEST	*
