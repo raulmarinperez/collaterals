@@ -6,8 +6,9 @@
 #   authentication or authorization, enabled. Execution engine is MR. 
 #   Zeppelin has been also included to facilitate interaction with Hive.
 #
-#   Additionally, it includes data from the Hortonia Bank which can be handy
-#   to play around with some data. This content is available on the Internet: 
+#   Additionally, it includes data from the Hortonia Bank demo which can be 
+#   handy to play around with some data. This content is available on the 
+#   Internet: 
 #   https://github.com/abajwa-hw/masterclass/tree/master/ranger-atlas
 #
 #   Watch <replace by youtube URL> to see it in action.

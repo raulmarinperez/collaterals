@@ -2,10 +2,10 @@
 # 
 # Description:
 #   A Hive3 Docker image built on top of the hive3 image and using the setup of
-#   the hadoop3_krb image as a reference to bring Kerberos to this one; Even
-#   though Kerberos authentication is enabled, it's still a functional artifact
-#   and it has to be used for testing and training. Execution engine is MR.
-#   Zeppelin has been also included to facilitate interaction with Hive.
+#   the hadoop3_vanilla_krb image as a reference to bring Kerberos to this one; 
+#   Even though Kerberos authentication is enabled, it's still a functional 
+#   artifact and it has to be used for testing and training. Execution engine is 
+#   MR. Zeppelin has been also included to facilitate interaction with Hive.
 #
 #   Additionally, it includes data from the Hortonia Bank demo which can be
 #   handy to play around with some data. This content is available on the

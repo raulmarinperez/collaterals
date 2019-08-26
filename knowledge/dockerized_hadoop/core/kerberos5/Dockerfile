@@ -4,8 +4,8 @@
 #   Docker image definition to run a KDC and Kerberos Admin server for the
 #   QUEEN.KRB.TEST realm.
 #
-#   KDC database master key is "MITiys4K5!", which is example in the installation
-#   guide (bad practive). 
+#   KDC database master key is "MITiys4K5!", which is the example in the
+#   installation guide (bad practice). 
 #   Password for admin/admin@QUEEN.KRB.TEST principal is "l1k3U_more".
 #
 #   Watch <replace by youtube URL> to see it in action.
