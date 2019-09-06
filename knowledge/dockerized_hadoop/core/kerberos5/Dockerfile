@@ -2,32 +2,43 @@
 #
 # Description:
 #   Docker image definition to run a KDC and Kerberos Admin server for the
-#   QUEEN.KRB.TEST realm.
+#   QUEEN.KRB.TEST realm, so the DNS domain for the network should be
+#   queen.krb.test.
 #
 #   KDC database master key is "MITiys4K5!", which is the example in the
 #   installation guide (bad practice). 
 #   Password for admin/admin@QUEEN.KRB.TEST principal is "l1k3U_more".
 #
-#   Watch <replace by youtube URL> to see it in action.
+#   Watch https://youtu.be/zsRHOzlH30o to see it in action.
 #
 #   NOTE: It doesn't rely on external volumes, which means once the container
 #         is stopped ALL DATA IS GONE. This image is for testing and training
 #         purposes.
 #
 # Infra prerrequisites:
-#   A non-default network where IP addresses can be managed (IPAM) is needed; it
-#   can be created from the command line by the following docker command:
+#   A non-default network where IP addresses can be managed (IPAM) is needed when
+#   more than one container will work with this one together:
 #
 #     docker network create --ipam-driver default --subnet=172.28.0.0/16 krb_net
 #
 # Build instructions:
 #   docker build -t kerberos5:<tag_name> .
 #
-# Container execution and access to services:
-#   docker run -d --rm --hostname kerberos --domainname krb.test --name kerberos 
-#              --network krb_net --ip 172.28.0.2 --add-host hadoop.krb.test:172.28.0.3
-#              kerberos5:<tag_name>
-#   docker exec -it kerberos /bin/bash
+# Container creation/execution, access to it and finalization:
+#   docker run -dt --rm --name kerberos5 --hostname kerberos 
+#                       --domainname queen.krb.test raulmarinperez/kerberos5
+#   docker exec -it kerberos5 /bin/bash
+#   docker kill kerberos5
+#
+#   If this container is going to be used as part of something bigger with some
+#   other containers using this one as the authentication server, the following
+#   will be needed:
+#
+#   docker network create --ipam-driver default --subnet=172.28.0.0/16 krb_net
+#   docker run -dt --rm --name kerberos5 --hostname kerberos 
+#              --domainname queen.krb.test --network krb_net --ip 172.28.0.2 
+#              --add-host hadoop.krb.test:172.28.0.3 kerberos5:<tag_name>
+#   (the other containers should be started in a similar way)
 #
 # Release notes (tag names):
 #   stretch - Release built when base image was based on Debian 9 (Stretch)
@@ -88,4 +99,3 @@ EXPOSE 88 750
 #   - Installing KDC: http://web.mit.edu/kerberos/krb5-current/doc/admin/install_kdc.html
 #   - MIT Kerberos Documentation - For users: http://web.mit.edu/kerberos/krb5-current/doc/user/index.html
 #   - MIT Kerberos Documentation - Application servers: http://web.mit.edu/kerberos/krb5-current/doc/admin/appl_servers.html
-#   - 
