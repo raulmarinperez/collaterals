@@ -28,6 +28,9 @@
 #  docker exec -it hive2 /bin/bash
 #
 # Release notes (tag names):
+#   2.3.6_1 - Source files reorganized to add more files into the image. 
+#             Change workdir to /root and added $HIVE_HOME/bin into the path.
+#             (Sep 22nd, 2019)
 #   2.3.6_0 - Binaries deployed under /opt and daemons executed as root user
 #
 
@@ -68,10 +71,13 @@ RUN cd $HIVE_HOME; $HIVE_HOME/bin/schematool -dbType derby -initSchema
 #   Update core-site.xml to allow impersonation & to be bound to all interfaces
 ADD core-site.xml $HADOOP_HOME/etc/hadoop
 
-#   Add Hortonia Bank files into the image
-RUN mkdir /root/hortonia
-ADD hortonia/* /root/hortonia/
-RUN bunzip2 /root/hortonia/*bz2
+#   Add Hortonia Bank and some other files into the image
+RUN mkdir /opt/collaterals
+COPY files/ /opt/collaterals/
+RUN bunzip2 /opt/collaterals/hortonia/*bz2 && \
+    apt-get install -y unzip && \
+    curl http://files.grouplens.org/datasets/movielens/ml-latest-small.zip -o /opt/collaterals/hadoop_data/ml-latest-small.zip && \
+    unzip /opt/collaterals/hadoop_data/ml-latest-small.zip -d /opt/collaterals/hadoop_data/
 
 #   Create HDFS folders for Hive, add Hortonia Bank files and load them into Hive
 WORKDIR /opt/hive2
@@ -88,12 +94,12 @@ RUN /etc/init.d/ssh start && \
     $HADOOP_HOME/bin/hdfs dfs -mkdir -p /user/admin/hortoniabank_data/claim_savings && \
     $HADOOP_HOME/bin/hdfs dfs -mkdir -p /user/admin/hortoniabank_data/provider_summary && \
     # data files copy
-    $HADOOP_HOME/bin/hdfs dfs -put /root/hortonia/us_customers_data.csv /user/admin/hortoniabank_data/us_customers && \
-    $HADOOP_HOME/bin/hdfs dfs -put /root/hortonia/ww_customers_data.csv /user/admin/hortoniabank_data/ww_customers && \
-    $HADOOP_HOME/bin/hdfs dfs -put /root/hortonia/eu_countries.csv /user/admin/hortoniabank_data/eu_countries && \
-    $HADOOP_HOME/bin/hdfs dfs -put /root/hortonia/tax_2015.csv /user/admin/hortoniabank_data/tax_2015 && \
-    $HADOOP_HOME/bin/hdfs dfs -put /root/hortonia/claim_savings.csv /user/admin/hortoniabank_data/claim_savings && \
-    $HADOOP_HOME/bin/hdfs dfs -put /root/hortonia/claims_provider_summary_data.csv /user/admin/hortoniabank_data/provider_summary && \
+    $HADOOP_HOME/bin/hdfs dfs -put /opt/collaterals/hortonia/us_customers_data.csv /user/admin/hortoniabank_data/us_customers && \
+    $HADOOP_HOME/bin/hdfs dfs -put /opt/collaterals/hortonia/ww_customers_data.csv /user/admin/hortoniabank_data/ww_customers && \
+    $HADOOP_HOME/bin/hdfs dfs -put /opt/collaterals/hortonia/eu_countries.csv /user/admin/hortoniabank_data/eu_countries && \
+    $HADOOP_HOME/bin/hdfs dfs -put /opt/collaterals/hortonia/tax_2015.csv /user/admin/hortoniabank_data/tax_2015 && \
+    $HADOOP_HOME/bin/hdfs dfs -put /opt/collaterals/hortonia/claim_savings.csv /user/admin/hortoniabank_data/claim_savings && \
+    $HADOOP_HOME/bin/hdfs dfs -put /opt/collaterals/hortonia/claims_provider_summary_data.csv /user/admin/hortoniabank_data/provider_summary && \
     # permissions set
     $HADOOP_HOME/bin/hdfs dfs -chown -R admin:hadoop /user/admin/hortoniabank_data && \
     $HADOOP_HOME/bin/hdfs dfs -chmod -R g+wX /user/admin/hortoniabank_data && \
@@ -101,7 +107,7 @@ RUN /etc/init.d/ssh start && \
     $HADOOP_HOME/sbin/start-yarn.sh && \
     $HADOOP_HOME/bin/mapred --daemon start historyserver && \
     # Databases built process without bringing hiveserver2 up.
-    $HIVE_HOME/bin/beeline -u jdbc:hive2://  -f /root/hortonia/create-secgovdemo-hortoniabank-tables.ddl && \
+    $HIVE_HOME/bin/beeline -u jdbc:hive2://  -f /opt/collaterals/hortonia/create-secgovdemo-hortoniabank-tables.ddl && \
     # Bring the pseudo-cluster down.
     $HADOOP_HOME/bin/mapred --daemon stop historyserver && \
     $HADOOP_HOME/sbin/stop-yarn.sh  && \
@@ -114,23 +120,23 @@ RUN /etc/init.d/ssh start && \
 #   - Add the file with the definition of all interpreters (Hive included).
 #
 
-#   Link Hive's libraries to the JDBC interpreter
-RUN ln -s $HIVE_HOME/lib/hive-exec-2.3.6.jar $ZEPPELIN_HOME/interpreter/jdbc
-RUN ln -s $HIVE_HOME/lib/hive-jdbc-2.3.6.jar $ZEPPELIN_HOME/interpreter/jdbc
-RUN ln -s $HIVE_HOME/lib/hive-service-2.3.6.jar $ZEPPELIN_HOME/interpreter/jdbc
-RUN ln -s $HIVE_HOME/lib/libthrift-0.9.3.jar $ZEPPELIN_HOME/interpreter/jdbc
-
-#   Add the file with the definition of all interpreters (Hive included).
-ADD interpreter.json $ZEPPELIN_HOME/conf
+#   Link Hive's libraries to the JDBC interpreter and add file Hive interpreter def.
+RUN ln -s $HIVE_HOME/lib/hive-exec-2.3.6.jar $ZEPPELIN_HOME/interpreter/jdbc && \
+    ln -s $HIVE_HOME/lib/hive-jdbc-2.3.6.jar $ZEPPELIN_HOME/interpreter/jdbc && \
+    ln -s $HIVE_HOME/lib/hive-service-2.3.6.jar $ZEPPELIN_HOME/interpreter/jdbc && \
+    ln -s $HIVE_HOME/lib/libthrift-0.9.3.jar $ZEPPELIN_HOME/interpreter/jdbc && \
+    cp /opt/collaterals/interpreter.json $ZEPPELIN_HOME/conf
 
 # Main script to initialize the container with Hadoop 3 services
 #
 
+WORKDIR /root
 ADD bootstrap.sh /etc/bootstrap.sh
 RUN chown root:root /etc/bootstrap.sh
 RUN chmod 700 /etc/bootstrap.sh
 
 ENV BOOTSTRAP /etc/bootstrap.sh
+ENV PATH $PATH:$HIVE_HOME/bin
 
 CMD ["/etc/bootstrap.sh"]
 

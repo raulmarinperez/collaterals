@@ -1,6 +1,6 @@
 #!/bin/bash
 
-RM_IMAGE_VERSION=2.3.6_0
+RM_IMAGE_VERSION=2.3.6_1
 RM_IMAGE_NAME="Hive 2 (no auth, MR execution engine)"
 echo -e "\e[102mStarting $RM_IMAGE_NAME $RM_IMAGE_VERSION image...\e[0m"
 sleep 5
