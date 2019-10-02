@@ -13,5 +13,7 @@ This is what you'll find in this folder:
    - Kerberized Hive3 (MR) + HortoniaBank demo's Hive artifacts + Zeppelin pseudo-cluster image
 
    all these artifacts have been created for testing, development or training purposes. Definitely, **far from being production ready**.
- 
+ - **[trucking_data_dim](trucking_data_dim).-** Trucking Data Simulator publicly available in [George 
+Vetticaden's github repository](https://github.com/georgevetticaden/sam-trucking-data-utils).
+
 Raul
