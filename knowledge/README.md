@@ -13,6 +13,6 @@ This is what you'll find in this folder:
    - Kerberized Hive3 (MR) + HortoniaBank demo's Hive artifacts + Zeppelin pseudo-cluster image
 
    all these artifacts have been created for testing, development or training purposes. Definitely, **far from being production ready**.
- - **[data_generation](data_generation).-** Data generators free to use I find useful for demos purposes.
+ - **[data_generation](data_generation).-** Data generators free to use I find useful for demo purposes.
 
 Raúl
