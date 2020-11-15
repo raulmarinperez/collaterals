@@ -96,15 +96,17 @@ class AQSpider(scrapy.Spider):
              else:   # Extract city info
                  yield self.build_datadoc(country, row, str_date, str_hour)
 ```
- - **Step 3.-** Because of the integration with NiFi we want to address, our spider should provide results to the standard output. To do so, we need to add the following three lines at the end of the `settings.py` file:
+ - **Step 3.-** Because of the integration with NiFi we want to address, our spider should provide results to the standard output. To do so, we need to add the following four lines at the end of the `settings.py` file:
 
+   ```python
+   FEED_FORMAT = 'jsonlines'
+   FEED_URI = 'stdout:'
 
-```python
-FEED_FORMAT = 'jsonlines'
-FEED_URI = 'stdout:'
-
-LOG_LEVEL = 'ERROR'
-```
+   LOG_LEVEL = 'ERROR'
+   DOWNLOADER_CLIENT_TLS_CIPHERS = 'DEFAULT:!DH'
+   ```
+ 
+   *Update (Nov 15th 2020):* The [DOWNLOADER_CLIENT_TLS_CIPHERS](https://docs.scrapy.org/en/latest/topics/settings.html#downloader-client-tls-ciphers) property is needed due to the latest OpenSSL updates and dated web servers with weak encryption configuration ([Support for overriding OpenSSL ciphers #3442](https://github.com/scrapy/scrapy/pull/3442)).
  - **Step 4.-** Test the spider before deploying it to a NiFi cluster. To do so, we’ll use the `scrapy crawl` command, passing the name of the spider as an argument. If everything goes ok, you should get something similar to the following screenshot:
     ![pic5](img/Scrapy_3.png) 
  - **Step 5.-** Copy the spider to every NiFi node in the cluster, this will provide an HA and scalable scenario. In order to achieve **web scraping at scale**, you might have **multiple spiders running in parallel to speed up the data extraction process**. Every spider would process a subset of the total data.
